@@ -1,3 +1,19 @@
+<?php
+  $conn = new SQLite3("./db.sqlite");
+  $sql = "
+    CREATE TABLE IF NOT EXISTS users(
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      username TEXT NOT NULL,
+      displayname TEXT NOT NULL,
+      email TEXT NOT NULL,
+      password TEXT NOT NULL,
+      coins INTEGER NOT NULL
+    )
+  ";
+  $conn -> exec($sql);
+  $conn -> close();
+?>
+<!DOCTYPE html>
 <html>
   <head>
     <title>CHS - Social</title>
@@ -7,6 +23,7 @@
         padding: 0 30px;
         color: black;
         vertical-align: middle;
+        font-size: 20px;
       }
       #current-on{
         color: blue;
@@ -18,8 +35,10 @@
   </head>
   <body>
     <div class = "menu">
-      <a><img src = "https://th.bing.com/th/id/OIP.WtHJMFPvbx62FKV5ozTEwwAAAA?pid=ImgDet&rs=1"></a>
+      <a><img src = "https://th.bing.com/th/id/OIP.WtHJMFPvbx62FKV5ozTEwwAAAA?pid=ImgDet&rs=1" alt = "CHS logo"></a>
       <a id = "current-on">Home</a>
+      <a href = "./about.php">About</a>
+      <a href = "./blog.php">Blog</a>
       <a href = "./chat.php">Chat</a>
       <?php 
         if(!isset($_SESSION['louswchs'])){
