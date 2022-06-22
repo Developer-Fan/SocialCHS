@@ -61,6 +61,18 @@
       .menu img{
         height: 70px;
       }
+      .main {
+        padding: 20px;
+      }
+      .main h1 {
+        font-size: 50px;
+      }
+      .main p, .main li {
+        font-size: 20px;
+      }
+      .main h3{
+        font-size: 30px;
+      }
     </style>
   </head>
   <body>
@@ -81,9 +93,28 @@
         }
       ?>
     </div>
-    <h1>Welcome to the unofficial social website of CHS</h1>
-    <p>
-      WELCOME!!!
-    </p>
+    <div class = "main">
+      <h1>Socialising. With other CHS people. Made Easy.</h1>
+      <p>
+        Social CHS is an (unofficial) socialising website created by <a href = "https://github.com/Developer-Fan">Developer Fan</a>.
+        <br>
+        Although this page of Social CHS does not 
+        look impressive, once you have 
+        <a href = "./login.php">logged in or signed 
+         up</a>, you'll be blowed by the numerous, 
+        practical and unique features that it offers.
+        <br>
+        <ul>
+          <li>Stay connected with the CHS community with Chat</li>
+          <li>Free and easy blogging, for every CHS member</li>
+          <li>Classic games made competetive</li>
+          <li>Bragging rights with the digital currency, CHStonks coins</li>
+          <li>Have fun (bullying) the bot <i>Totally a CHS student</i></li>
+          <li>New features frequently</li>
+        </ul>
+      </p>
+      <h3>So. What are you waiting for?</h3>
+      <p><a href = "./login.php">Login or Sign Up NOW!!!</a></p>
+    </div>
   </body>
 </html>
