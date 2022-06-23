@@ -48,19 +48,6 @@
   <head>
     <title>CHS - Social</title>
     <style>
-      .menu a {
-        text-decoration: none;
-        padding: 0 30px;
-        color: black;
-        vertical-align: middle;
-        font-size: 20px;
-      }
-      #current-on{
-        color: blue;
-      }
-      .menu img{
-        height: 70px;
-      }
       .main {
         padding: 20px;
       }
@@ -74,6 +61,7 @@
         font-size: 30px;
       }
     </style>
+    <link rel = "stylesheet" type = "text/css" href = "main.css">
   </head>
   <body>
     <div class = "menu">
@@ -83,6 +71,7 @@
       <a href = "./blog.php">Blog</a>
       <a href = "./chat.php">Chat</a>
       <a href = "./games.php">Games</a>
+      <a href = "./store.php">Store</a>
       <?php 
         if(!isset($_SESSION['louswchs'])){
           echo "<a href = './login.php'>Login</a>";

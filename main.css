@@ -1,0 +1,13 @@
+.menu a {
+  text-decoration: none;
+  padding: 0 30px;
+  color: black;
+  vertical-align: middle;
+  font-size: 20px;
+}
+#current-on{
+  color: blue;
+}
+.menu img{
+  height: 70px;
+}
