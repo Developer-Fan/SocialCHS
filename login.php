@@ -1,9 +1,48 @@
 <?php
+  session_start();
+  if(isset($_SESSION["louswchs"])){
+    header("Location: https://social-chs.coderct.repl.co");
+    exit();
+  }
   $conn = new SQLite3("./db.sqlite");
   if(isset($_POST["thet"]) && isset($_POST["pass"]) && $_POST["thet"] != "" && $_POST["pass"] != ""){
-    $sql = "SELECT * FROM users WHERE email = '".$_POST['thet']."'";
+    $a = htmlspecialchars($_POST["thet"]);
+    $b = htmlspecialchars($_POST["pass"]);
+    $sql = "SELECT * FROM users WHERE email = '$a' OR username = '$a' AND password = '$b';";
+    $res = $conn->query($sql);
+    $i = 0;
+    while($row = $res->fetchArray(SQLITE3_ASSOC)){
+      $i++;
+      $_SESSION["louswchs"] = "yes";
+      $_SESSION["idswchs"] = $row["id"];
+      $_SESSION["uswchs"] = $row["username"];
+      $_SESSION["dnswchs"] = $row["displayname"];
+      $_SESSION["emailswchs"] = $row["email"];
+      $_SESSION["pwswchs"] = $row["password"];
+      header("Location: https://social-chs.coderct.repl.co");
+      exit();
+    }
+    if(!$i > 0){
+      echo "No user exists";
+    }
   }else if(isset($_POST["email"]) && isset($_POST["username"]) && isset($_POST["displayname"]) && isset($_POST["password"]) && $_POST["email"] != "" && $_POST["username"] != "" && $_POST["displayname"] != "" && $_POST["password"] != ""){
-    echo "test";
+    $sql = "INSERT INTO users(username, displayname, email, password, friends, fr, prof, status, badges, coins) VALUES('".htmlspecialchars($_POST["username"])."','".htmlspecialchars($_POST["displayname"])."', '".htmlspecialchars($_POST["email"])."', '".htmlspecialchars($_POST["password"])."', '', '', '', '', '', 0);";
+    $res = $conn->exec($sql);
+    if(!$res){
+      echo $res->lastErrorMsg();
+    }
+    $sql = "SELECT * FROM users WHERE username = '".htmlspecialchars($_POST["username"])."'";
+    $res = $conn->query($sql);
+    while($row = $res->fetchArray(SQLITE3_ASSOC)){
+      $_SESSION["louswchs"] = "yes";
+      $_SESSION["idswchs"] = $row["id"];
+      $_SESSION["uswchs"] = $row["username"];
+      $_SESSION["dnswchs"] = $row["displayname"];
+      $_SESSION["emailswchs"] = $row["email"];
+      $_SESSION["pwswchs"] = $row["password"];
+      header("Location: https://social-chs.coderct.repl.co");
+      exit();
+    }
   }else if(isset($_POST["submit"])){
     echo "Please fill in the form(s) correctly!";
   }
@@ -16,6 +55,12 @@
     <style>
       input {
         display: block;
+      }
+      .main {
+        padding: 10px 40px;
+      }
+      input, button{
+        margin: 10px;
       }
     </style>
     <link rel = "stylesheet" type = "text/css" href = "main.css">

@@ -1,11 +1,12 @@
 <?php
+  session_start();
   $conn = new SQLite3("./db.sqlite");
   $sql = "
     CREATE TABLE IF NOT EXISTS users(
       id INTEGER PRIMARY KEY AUTOINCREMENT,
-      username TEXT NOT NULL,
+      username TEXT NOT NULL UNIQUE,
       displayname TEXT NOT NULL,
-      email TEXT NOT NULL,
+      email TEXT NOT NULL UNIQUE,
       password TEXT NOT NULL,
       friends TEXT NOT NULL,
       fr TEXT NOT NULL,
@@ -73,11 +74,11 @@
       <a href = "./games.php">Games</a>
       <a href = "./store.php">Store</a>
       <?php 
-        if(!isset($_SESSION['louswchs'])){
+        if(!isset($_SESSION["louswchs"])){
           echo "<a href = './login.php'>Login</a>";
         }else{
-          echo "<a href = './settings.php'>Settings</a><a style = 'font-size: 30px'><b>Welcome, ".$_SESSION[
-            'uswchsu'
+          echo "<a href = './settings.php'>Settings</a><a style = 'font-size: 30px'>Welcome, <b>".$_SESSION[
+            "dnswchs"
           ]."</a></b>";
         }
       ?>

@@ -8,3 +8,15 @@ PHP 7.4+
 SQLite3 extension for PHP
 
 A server
+## Session vars
+louswchs: logged on?
+
+idswchs: id
+
+uswchs: username
+
+dnswchs: displayname
+
+emailswchs: email
+
+pwswchs: password
