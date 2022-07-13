@@ -2,7 +2,7 @@
 session_start();
 $conn = new SQLite3("../db.sqlite");
 if (!isset($_SESSION["louswchs"])) {
-  header("Location: https://social-chs.coderct.repl.co/login.php");
+  header("Location: ../login.php");
   exit();
 }
 if (isset($_POST["title"]) && isset($_POST["body"]) && $_POST["title"] != "" && $_POST["body"] != "") {

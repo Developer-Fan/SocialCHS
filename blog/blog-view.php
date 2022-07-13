@@ -2,7 +2,7 @@
 session_start();
 $conn = new SQLite3("../db.sqlite");
 if (!isset($_GET["id"])) {
-  header("Location: https://social-chs.coderct.repl.co/blog/blog.php");
+  header("Location: ./blog.php");
   exit();
 }
 ?>

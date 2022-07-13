@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_SESSION["louswchs"])) {
-  header("Location: https://social-chs.coderct.repl.co");
+  header("Location: ./index.php");
   exit();
 }
 $conn = new SQLite3("./db.sqlite");
@@ -19,7 +19,7 @@ if (isset($_POST["thet"]) && isset($_POST["pass"]) && $_POST["thet"] != "" && $_
     $_SESSION["dnswchs"] = $row["displayname"];
     $_SESSION["emailswchs"] = $row["email"];
     $_SESSION["pwswchs"] = $row["password"];
-    header("Location: https://social-chs.coderct.repl.co");
+    header("Location: ./index.php");
     exit();
   }
   if (!$i > 0) {
@@ -49,7 +49,7 @@ if (isset($_POST["thet"]) && isset($_POST["pass"]) && $_POST["thet"] != "" && $_
       $_SESSION["dnswchs"] = $row["displayname"];
       $_SESSION["emailswchs"] = $row["email"];
       $_SESSION["pwswchs"] = $row["password"];
-      header("Location: https://social-chs.coderct.repl.co");
+      header("Location: ./index.php");
       exit();
     }
   }
