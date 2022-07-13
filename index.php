@@ -84,6 +84,9 @@
       ?>
     </div>
     <div class = "main">
+      <?php
+        if(!isset($_SESSION["louswchs"])){
+      ?>
       <h1>Socialising. With other CHS people. Made Easy.</h1>
       <p>
         Social CHS is an (unofficial) socialising website created by <a href = "https://github.com/Developer-Fan">Developer Fan</a>.
@@ -105,6 +108,18 @@
       </p>
       <h3>So. What are you waiting for?</h3>
       <p><a href = "./login.php">Login or Sign Up NOW!!!</a></p>
+      <?php
+        }else{
+          echo "<h1>Welcome ".$_SESSION["dnswchs"]."!</h1><br>";
+      ?>
+        <p>What is in your mind today?</p>
+        <p>If you got something you want to say, be sure to visit the <a href = "./blog.php">blog</a>, have a <a href = "./chat.php">chat</a> or <a href = "./games.php">gaming</a> session with your friends(Or anyone online).</p>
+        <p>
+          Your stats:
+        </p>
+      <?php
+        }
+      ?>
     </div>
   </body>
 </html>
